@@ -40,3 +40,40 @@ function jourTravaille(date)
 // On déclare la variable date
 
 
+function dayWork(date)
+{
+    let timeToStamp = date.getTime();
+    let day = date.getDay();
+    const holidays =
+    [
+        new Date(2020, 1, 1),
+        new Date(2020, 4, 12),
+        new Date(2020, 4, 13),
+        new Date(2020, 5, 1),
+        new Date(2020, 5, 8),   
+        new Date(2020, 5, 21),
+        new Date(2020, 5, 31),
+        new Date(2020, 6, 1),
+        new Date(2020, 7, 14),
+        new Date(2020, 8, 15),
+        new Date(2020, 11, 1),
+        new Date(2020, 11, 11),
+        new Date(2020, 12, 25),
+    ];
+
+    for (let i = 0; i < holidays.length; i++)
+    {
+        if (timeToStamp == holidays[i].getTime())
+        {
+            console.log("Le " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " est un jour férié");
+            return;
+        } else if (date.getDay() == 0 || date.getDay() == 6){
+            console.log("Le " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " est un week-end");
+            return;
+        } else {
+            console.log("Le " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " est un jour travaillé");
+            return;
+        }
+    }
+
+}
