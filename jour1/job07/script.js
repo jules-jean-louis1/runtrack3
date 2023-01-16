@@ -4,7 +4,7 @@ function jourTravaille(date)
     let jour = date.getDay();
     let mois = date.getMonth() + 1;
     let annee = date.getFullYear();
-    var jourSemaine = date.getDay();
+    let jourSemaine = date.getDay();
     // On declare un tableau contenant les jours fériés
     const joursFeries = 
     [
@@ -39,5 +39,4 @@ function jourTravaille(date)
 // Créer une instance de la classe Date en utilisant "new Date()".
 // On déclare la variable date
 
-let date = new Date(2020, 5, 1);
-console.log(jourTravaille(date));
+
