@@ -5,3 +5,4 @@ function bissextile(annee) {
         return false;
     }
 }
+console.log(bissextile(2020));
