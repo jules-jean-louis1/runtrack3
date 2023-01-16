@@ -23,3 +23,6 @@ function sommesnombrespremiers(n,m)
         return false;
     }
 }
+console.log(estpremier(2))
+console.log(estpremier(3))
+console.log(sommesnombrespremiers(2,3));
