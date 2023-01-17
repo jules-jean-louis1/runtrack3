@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function()
     btn2.addEventListener("click", showhide); */
 
     
-    let isVisible = false;
+/*     let isVisible = false;
 
     function showhide()
     {
@@ -30,14 +30,36 @@ document.addEventListener("DOMContentLoaded", function()
 
         if (!isVisible)
         {
-            mainArticle.appendChild(sentence).style.display = "";
+            mainArticle.appendChild(sentence)
+            sentence.style.visibility = "visible";
             isVisible = true;
-        } else
+        } elseif (isVisible == true)
         {
-            mainArticle.appendChild(sentence).style.display = "none";
+            sentence.style.visibility = "hidden";
+            isVisible = false;
+        }
+    }
+    const btn2 = document.querySelector("#button");
+    btn2.addEventListener("click", showhide); */
+    let isVisible = false;
+    let sentence;
+
+    function showhide() {
+        const mainArticle = document.querySelector("#phrase");
+        if (!isVisible) {
+            if (!sentence) {
+                sentence = document.createElement("article");
+                sentence.textContent = "L'important n'est pas la chute, mais l'atterrissage.";
+                mainArticle.appendChild(sentence);
+            }
+            sentence.style.display = "block";
+            isVisible = true;
+        } else {
+            sentence.style.display = "none";
             isVisible = false;
         }
     }
     const btn2 = document.querySelector("#button");
     btn2.addEventListener("click", showhide);
+
 });
