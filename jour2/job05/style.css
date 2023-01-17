@@ -8,4 +8,7 @@ main {
 }
 footer {
     position: fixed;
+    bottom: 0;
+    border: 25px solid black;
+    height: 300px;
 }
