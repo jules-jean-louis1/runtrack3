@@ -6,11 +6,14 @@ document.addEventListener("DOMContentLoaded", function()
         let counter = document.getElementById("compteur");
         counter.textContent = parseInt(counter.textContent) + 1;
     }
+
+
     function reset()
     {
         let compteur = document.getElementById("compteur");
         compteur.textContent = 0;
     }
+    
     // appel de la fonction addone
     let btn1 = document.querySelector("#button");
     btn1.addEventListener("click", addone);

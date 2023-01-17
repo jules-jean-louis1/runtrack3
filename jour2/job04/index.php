@@ -17,9 +17,7 @@ La fonction de récupération et d’affichage doit se nommer “citation()”. 
 </head>
 <body>
     <main class="container">
-        <button id="button" class="btn btn-primary" type="submit">andOne</button>
-        <button type="reset"class="btn btn-danger" id="reset">Reset</button>
-        <p id="compteur" style="font-size: large;">0</p>
+        <textarea name="zone_text" id="keylogger" cols="30" rows="10"></textarea>
     </main>
 </body>
 </html>
