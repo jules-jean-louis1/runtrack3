@@ -11,7 +11,10 @@
 </head>
 <body>
     <main class="container">
+        <p>Hello ici le maine!</p>
     </main>
-    <footer></footer>
+    <footer>
+        <h1 class="d-flex justify-content-center">Hello ici le pied!</h1>
+    </footer>
 </body>
 </html>

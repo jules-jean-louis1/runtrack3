@@ -1,10 +1,25 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Your code here
+window.addEventListener("DOMContentLoaded", (event) => {
     
-window.onscroll = function() {
-    var scroll = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    var footer = document.querySelector("footer");
-    footer.style.backgroundColor = "rgb(" + (255 * scroll) + ", " + (255 * scroll) + ", " + (255 * scroll) + ")";
-};
+    let footer = document.querySelector("footer")
+    window.addEventListener("scroll", function() {
+        let y = window.scrollY;
+        console.log(y)
+        if ( window.scrollY > 800){
+            footer.className = "rouge"
+        }
+        if ( y > 1600){
+            footer.className = "bleu"
+        } 
+        if ( y > 2400){
+            footer.className = "orange"
+        } 
+        if ( y > 3200 ){
+            footer.className = "vert"
+        } 
+        if ( y > 4000){
+            footer.className = "jaune"
+        }
+    })
         
+
 });
