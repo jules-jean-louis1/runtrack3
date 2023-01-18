@@ -1,10 +1,9 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     
     let footer = document.querySelector("footer")
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", () =>{
         let y = window.scrollY;
-        console.log(y)
-        if ( window.scrollY > 800){
+        if ( y > 800){
             footer.className = "rouge"
         }
         if ( y > 1600){
@@ -19,7 +18,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
         if ( y > 4000){
             footer.className = "jaune"
         }
-    })
-        
-
+    });     
 });

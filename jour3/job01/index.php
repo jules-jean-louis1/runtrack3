@@ -9,8 +9,11 @@
     <title>Jour03</title>
 </head>
 <body>
-    <button id="button">Apparition</button>
-        <p>“le $ est un bon élément monétaire. Le # de twitter est une bonne I D. Il faudra faire le point avec la classe pour cacher cet élément.</p>
-    <button id="hidden">dispartion</button>
+    <button id="show">Apparition</button>
+    <button id="hide">dispartion</button>
+    <button id="color">Couleur</button>
+        <p>
+            “Les logiciels et les cathédrales, c'est un peu la même chose - d'abord on les construit, ensuite on prie.”
+        </p>
 </body>
 </html>

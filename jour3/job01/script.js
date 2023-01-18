@@ -1,14 +1,17 @@
-$(document).ready( function () {
+window.addEventListener("DOMContentLoaded", (event) => {
+
+    let p = $("p");
+    p.hide();
+
+    $("#show").click(()=>{
+        p.show();
+    });
+    $("#hide").click(()=>{
+        p.hide();
+    });
+    $("#color").click(()=>{
+        p.css("color", p.css("color") === "blue" ? "black" : "blue");
+    });
     
-    let p = document.querySelector("p");
-    p.style.display = "none";
-
-    $("#button").click(function(){
-        $("p").show();
-    });
-        
-    $("#hidden").click(function(){
-        $("p").hide()
-    });
-
+    
 });
