@@ -13,12 +13,9 @@
         Mélanger
     </button>
     <div id="melangees">
-        <img id="1" src="arc1.png" alt="">
-        <img id="2" src="arc2.png" alt="">
-        <img id="3" src="arc3.png" alt="">
-        <img id="4" src="arc4.png" alt="">
-        <img id="5" src="arc5.png" alt="">
-        <img id="6" src="arc6.png" alt="">
+        <?php foreach (range(1, 6) as $i) : ?>
+            <img id="<?= $i ?>" src="src/arc<?= $i ?>.png" alt="images_rainbow">
+        <?php endforeach; ?>
     </div>
     <div id="rangees">
     </div>
