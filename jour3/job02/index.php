@@ -18,15 +18,14 @@ Sinon, le message “Vous avez perdu” s’affiche en rouge. -->
     <title>Jour03</title>
 </head>
 <body>
-    <button id="button" class="btn btn-outline-success">
-        Mélanger
-    </button>
-    <div id="melangees">
-        <?php foreach (range(1, 6) as $i) : ?>
-            <img id="<?= $i ?>" src="src/arc<?= $i ?>.png" alt="images_rainbow">
-        <?php endforeach; ?>
-    </div>
-    <div id="rangees">
-    </div>
+    <main class="container">
+        <div id="rangees" style="border: 2px solid red; height: 150px;">
+        </div>
+        <button id="button" class="btn btn-outline-success">
+            Mélanger
+        </button>
+        <div id="melangees">
+        </div>
+    </main>
 </body>
 </html>
