@@ -2,13 +2,16 @@ $(document).ready(function()
 {
     
     
-    $("#submit").on('click', function(event)
+     $("#submit").on('click', function(event)
     {
-        const id = $('#getid').val();
-        const nom = $('#username').val();
-        const type = $('#type_liste').val();
         event.preventDefault();
-        
+        let id = $('#getid').val();
+        let nom = $('#username').val();
+        let type = $('#type_liste').val();
+        let result = $('#result');
+        if ( 1 == id ) {
+            result.innerHTML += `<p class="alert alert-danger">Erreur</p>`;
+        }
         async function fetchPokemon() {
             const r = await fetch ('pokemon.json');
             if (r.ok === true) {
@@ -17,25 +20,25 @@ $(document).ready(function()
                 throw new Error('Erreur')
             }
         }
+    
         fetchPokemon().then(data => {
-            let filterData = data.filter(item => {
-                if (id && item.id !== id) {
-                    return false;
-                  }
-                  if (nom && item.nom !== nom) {
-                    return false;
-                  }
-                  if (type && item.type !== type) {
-                    return false;
-                  }
-                  return true;
-                });
-                let resultHTML = "";
-                filteredData.forEach(item => {
-                  resultHTML += `<p>ID: ${item.id} Nom: ${item.nom} Type: ${item.type}</p>`;
-                });
-          
-                document.getElementById("result").innerHTML = resultHTML;
-              });
-    });
+            console.log(id, nom, type);
+            for (let i = 0; i < data.length; i++) {
+                const item = data[i];
+                console.log(item.id);
+                
+                result.innerHTML += `<p>ID: ${item.id} Type: ${item.type}</p>`;
+                for (let j = 0; j < Object.keys(item.name).length; j++){
+                    /* console.log(Object.keys(item.name)[j]);
+                    result.innerHTML += `${Object.keys(item.name)[j]}: ${item.name[Object.keys(item.name)[j]]} `;*/
+                    
+                } 
+              }
+        })
+    }); 
+    
+
+
 });
+
+/* $('#result').append(`<p>${display[i].name}</p>`); */
