@@ -19,6 +19,7 @@ try {
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $data = $stmt->fetchAll();
     json_encode($data);
+    var_dump($data);
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();

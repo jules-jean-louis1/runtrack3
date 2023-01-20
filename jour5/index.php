@@ -1,6 +1,5 @@
 <?php
 
-include 'Connect.php';
 
 ?>
 
@@ -19,18 +18,21 @@ include 'Connect.php';
 </head>
 <body>
     <main class="container">
-        <div class="row">
+        <div class="form-box">
             <div class="utilisateur_">
-                <table id="data-table tbody">
-                    <thead>
-                        <td>Nom</td>
-                        <td>Prénom</td>
-                        <td>E-mail</td>
-                    </thead>
-                    <tbody id="data_display">
+                <button id="inscription_index"
+                        class="btn btn-primary"
+                >
+                    Inscription
+                </button>
+                <button id="connexion_index"
+                        class="btn btn-primary"
+                >
+                    Connexion
+                </button>
+            </div>
+            <div class="d-flex" id="display_form_register">
 
-                    </tbody>
-                </table>
             </div>
         </div>
     </main>
