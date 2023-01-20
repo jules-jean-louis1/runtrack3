@@ -6,6 +6,6 @@
         <input type="password" name="password" id="password">
         <label for="password_confirm">Confirmer mot de passe</label>
         <input type="password" name="password_confirm" id="password_confirm">
-        <button id="submitBtnRegister" class="btn btn-primary" type="submit">S'inscrire</button>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
     </div>
 </form>

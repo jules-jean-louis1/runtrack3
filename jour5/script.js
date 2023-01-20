@@ -1,18 +1,11 @@
 $(document).ready(function() {
-    const btnRegIndex = $('#inscription_index');
-    const formContainer = $('#display_form_register');
-    const formRegister = $('#inscription_form');
-    const btnRegForm = $('#submitBtnRegister');
 
-    btnRegIndex.click(function() {
-        fetch("inscription.php")
-            .then(response => response.text())
-            .then(data => {
-                formContainer.html(data);
-            });
-    });
-    formRegister.submit(function(e) {
-        e.preventDefault();
+    
+    const formRegister = $('#inscription_form');
+
+
+    formRegister.addEventListener("submit", function(event) {
+        event.preventDefault();
         const formData = new FormData(this);
         fetch("inscription.php", {
                 method: "POST",
@@ -25,7 +18,18 @@ $(document).ready(function() {
                 console.log(error);
             });
         });
+});
 
-    
+$(document).ready(function() {
 
+    const btnRegIndex = $('#inscription_index');
+    const formContainer = $('#display_form_register');
+
+    btnRegIndex.click(function() {
+        fetch("inscription.php")
+            .then(response => response.text())
+            .then(data => {
+                formContainer.html(data);
+            });
+    });
 });
