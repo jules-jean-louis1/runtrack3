@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
+$dbname = "jour5";
 $username = "root";
 $password = "";
-$dbname = "utilisateurs";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

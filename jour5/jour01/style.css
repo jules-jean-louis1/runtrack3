@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', cursive;
+/*     background-color: #F8F9FA; */
+}
+ul {
+    list-style: none;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -5,12 +18,15 @@ body {
     margin: 0;
     padding: 0;
   }
+header {
+    background-color: #fff;
+}
   
   #container {
-    width: 90%;
-    height: 90vh;
+    width: 92vw;
+    height: 89vh;
     margin: 0 auto;
-    background-color: #f0f0f0;
+    background-color: #FFD43B;
   }
   
   #boutons {
@@ -18,25 +34,27 @@ body {
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 1%;
+    padding-top: 5vh;
   }
-  
-  #boutons button {
-    width: 100px;
-    height: 50px;
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  
-  #boutons button:hover {
-    background-color: #000;
-    color: #fff;
-  }
+#inscription, #connexion, .connect_btn {
+    background-color: #FFD43B;
+    padding: 22px 26.4px;
+    border: 0.2em solid #000000;
+    border-radius: 0.5em;
+    box-shadow: 0 0.375em 0 #000000;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+#inscription:hover, #connexion:hover, .connect_btn:hover {
+    background-color: #FAB005;
+    transition: 50ms ease-in;
+}
+/* #inscription:active, #connexion:active {
+    background-color: #FAB005;
+    box-shadow: 0 0.125em 0 #000000;
+    transform: translateY(0.25em);
+    transition: 50ms ease-in; */
   
   /* Différents formulaire */
   /* inscription */
@@ -87,7 +105,7 @@ body {
     width: 100%;
     height: 100%;
     font-size: 20px;
-    background-color: rgb(0, 202, 185);
+    background-color: #FAB005;
   }
   
   #form-conn div {
@@ -102,8 +120,6 @@ body {
   }
   
   #form-conn button {
-    width: 10%;
-    font-size: 20px;
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 2%;
@@ -122,4 +138,18 @@ body {
   #message {
     font-size: 20px;
   }
-  
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+#footer-space {
+
+}
+#space-f-1 {
+
+}
+i {
+    color: #000;
+}
