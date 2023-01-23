@@ -1,49 +1,50 @@
 <?php
-
 class Connect
 {
     private $pdo;
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=jour5', 'root', '');
+        try {
+            $this->pdo = new PDO('mysql:host=localhost;dbname=runtrack3', 'root', '');
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo 'Connexion échouée : ' . $e->getMessage();
+            exit;
+        }
     }
 
-    public function verifyUser($login) 
+    public function checkLogin()
     {
-        $query = $this->pdo->prepare("SELECT login FROM utilisateurs WHERE login = :login");
-        $query->execute([
-            'login' => $login
-        ]);
-        $result = $query->fetch();
-        for ($i = 0; $i < count($result); $i++) {
-            if ($result[$i] == $login) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        
-    }
-    public function verifyLogin()
-    {
-        $login = array();
-        $query = $this->pdo->prepare("SELECT login FORM utilisateurs");
+        $query = $this->pdo->prepare('SELECT `login` FROM `users`');
         $query->execute();
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-            $login[] = $result;
-        }
-        return ;
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
+        return json_encode($result, JSON_PRETTY_PRINT);
     }
-    public function register($login, $password)
+    public function register()
     {
-        $query = $this->pdo->prepare("INSERT INTO utilisateurs (login, password) VALUES (:login, :password)");
-        $query->execute([
-            'login' => $login,
-            'password' => $password
-        ]);
+        /* if (isset($_POST['username'])) {
+            $query = $this->pdo->prepare('SELECT `login` FROM `users` WHERE `login` = :login');
+            $query->execute([
+                'login' => $_POST['username']
+            ]);
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            if (count($result) > 0) {
+                echo 'Ce login est déjà utilisé';
+                exit;
+            }
+        } */
+        if (isset($_POST['username'])) {
+            $query = $this->pdo->prepare('INSERT INTO `users` (`login`, `password`) VALUES (:login, :password)');
+            $result = $query->execute([
+                'login' => $_POST['login'],
+                'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+            ]);
+            if ($result) {
+                header('HTTP/1.1 201 OK');
+            }
+            die();
+        }
     }
 }
-
-?>

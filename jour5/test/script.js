@@ -1,32 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const btnRegIndex = $('#inscription_index');
-    const formContainer = $('#display_form_register');
-    const formRegister = $('#form_register');
-    const btnRegForm = $('#submitBtnRegister');
+const btnRegister = document.querySelector("#register");
+const btnLogin = document.querySelector("#login");
+const btnFormRegister = document.querySelector("#submit-reg");
+const registerDisplay = document.querySelector("display-form");
 
-    btnRegIndex.click(function() {
-        fetch("inscription.php")
-            .then(response => response.text())
-            .then(data => {
-                formContainer.html(data);
-            });
-    });
-    formRegister.submit(function(event) {
-        event.stopImmediatePropagation();
-        const formData = new FormData(this);
-        $.ajax({
-            url: "inscription.php",
-            type: "POST",
-            data: formData,
-            processData: false,  // Important, indique de ne pas traiter les données comme une chaîne
-            contentType: false, // Important, indique de ne pas définir le type de contenu
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(error) {
-                console.log(error);
+btnRegister.addEventListener("click", async (ev) => {
+    fetch('register.php')
+        .then((response) => {
+            if (response.ok) {
+                return response.text();
             }
+        })
+        .then((html) => {
+            registerDisplay.innerHTML = html;
         });
-        return false;
-    });
+        let registerForm = document.querySelector("#formRegister");
+        registerForm.addEventListener("submit", async(ev) => {
+            ev.preventDefault();
+            let formData = new FormData(registerForm);
+            fetch('register.php', {
+                method: 'POST',
+                body: formData
+                })
+                .then((response) => {
+                    if (response === 201) {
+                        alert("Vous êtes bien inscrit");
+                    }
+                })
+        });
+});
+
+btnLogin.addEventListener("click", async (ev) => {
+    fetch('login.php')
+        .then((response) => {
+            if (response.ok) {
+                return response.text();
+            }
+        })
+        .then((html) => {
+            registerDisplay.innerHTML = html;
+        });
+        let loginForm = document.querySelector("#formLogin");
+        loginForm.addEventListener("submit", async(ev) => {
+            ev.preventDefault();
+            let loginformData = new FormData(loginForm);
+            fetch('login.php', {
+                method: 'POST',
+                body: loginformData
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    let title = document.createAttribute('h1');
+                    title.innerHTML = 'Bienvenue ' + data.username;
+                    registerDisplay.appendChild(title);
+                })
+        });
 });
