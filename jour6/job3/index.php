@@ -1,9 +1,3 @@
-<?php
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,27 +8,17 @@
     <!-- JS -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script> 
-    <title>Jour04</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Job 02</title>
 </head>
 <body>
-    <main class="container">
-        <div class="form-box">
-            <div class="utilisateur_">
-                <button id="inscription_index"
-                        class="btn btn-primary"
-                >
-                    Inscription
-                </button>
-                <button id="connexion_index"
-                        class="btn btn-primary"
-                >
-                    Connexion
-                </button>
-            </div>
-            <div class="d-flex" id="display_form_register">
-
-            </div>
-        </div>
+    <main>
+    <article>
+        <section class="section"></section>
+        <section class="section"></section>
+        <section class="section"></section>
+        <section class="section"></section>
+    </article>
     </main>
 </body>
 </html>
