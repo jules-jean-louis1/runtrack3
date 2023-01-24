@@ -25,7 +25,7 @@ $login = $connect->checkLogin();
                 <button id="login">
                 Login
                 </button>
-                <div id="display-form">
+                <div id="containerForm">
                 </div>
             </section>
         </article>

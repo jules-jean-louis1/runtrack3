@@ -1,9 +1,9 @@
 const btnRegister = document.querySelector("#register");
 const btnLogin = document.querySelector("#login");
 const btnFormRegister = document.querySelector("#submit-reg");
-const registerDisplay = document.querySelector("#display-form");
+const containerForm = document.querySelector("#containerForm");
 
-btnRegister.addEventListener("click", (ev) => {
+btnRegister.addEventListener("click", () => {
     fetch('register.php')
         .then((response) => {
             if (response.ok) {
@@ -11,9 +11,9 @@ btnRegister.addEventListener("click", (ev) => {
             }
         })
         .then((html) => {
-            registerDisplay.innerHTML = html;
+            containerForm.innerHTML = html;
         });
-        const registerForm = document.querySelector("#formRegister");
+        let registerForm = document.getElementById("formRegister");
         registerForm.addEventListener("submit", async(ev) => {
             ev.preventDefault();
             let formData = new FormData(registerForm);
@@ -22,9 +22,7 @@ btnRegister.addEventListener("click", (ev) => {
                 body: formData
                 })
                 .then((response) => {
-                    if (response === 201) {
-                        alert("Vous êtes bien inscrit");
-                    }
+                    console.log(response);
                 })
         });
 })
