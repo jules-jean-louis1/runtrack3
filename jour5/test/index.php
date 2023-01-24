@@ -2,7 +2,7 @@
 include 'Connect.php';
 $connect = new Connect();
 $login = $connect->checkLogin();
-var_dump($login);
+
 
 ?>
 
