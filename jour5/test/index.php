@@ -1,7 +1,6 @@
 <?php
-include 'Connect.php';
-$connect = new Connect();
-$login = $connect->checkLogin();
+
+
 
 
 ?>
@@ -19,13 +18,13 @@ $login = $connect->checkLogin();
     <main>
         <article>
             <section>
-                <button id="register">
+                <button id="register-diplay-form">
                 Register
                 </button>
                 <button id="login">
                 Login
                 </button>
-                <div id="containerForm">
+                <div id="form-container">
                 </div>
             </section>
         </article>

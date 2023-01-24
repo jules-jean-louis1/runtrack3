@@ -1,57 +1,33 @@
-const btnRegister = document.querySelector("#register");
-const btnLogin = document.querySelector("#login");
-const btnFormRegister = document.querySelector("#submit-reg");
-const containerForm = document.querySelector("#containerForm");
+let registerDisplay = document.querySelector("#register-diplay-form");
+let formContainer = document.querySelector("#form-container");
 
-btnRegister.addEventListener("click", () => {
-    fetch('register.php')
+registerDisplay.addEventListener("click", async (ev) => {
+    await fetch('register.php')
         .then((response) => {
+            console.log(response);
             if (response.ok) {
                 return response.text();
             }
         })
         .then((html) => {
-            containerForm.innerHTML = html;
+            formContainer.innerHTML = html;
         });
-        let registerForm = document.getElementById("formRegister");
-        registerForm.addEventListener("submit", async(ev) => {
-            ev.preventDefault();
-            let formData = new FormData(registerForm);
-            fetch('register.php', {
-                method: 'POST',
-                body: formData
-                })
-                .then((response) => {
-                    console.log(response);
-                })
-        });
-})
-/* btnRegister.addEventListener("click", async (ev) => {
-    fetch('register.php')
-        .then((response) => {
-            if (response.ok) {
-                return response.text();
-            }
+    let registerForm = document.querySelector("#register-form")
+    registerForm.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        let formData = new FormData(registerForm);
+        await fetch('register.php', {
+            method: 'POST',
+            body: formData
         })
-        .then((html) => {
-            registerDisplay.innerHTML = html;
-        });
-        let registerForm = document.querySelector("#formRegister");
-        registerForm.addEventListener("submit", async(ev) => {
-            ev.preventDefault();
-            let formData = new FormData(registerForm);
-            fetch('register.php', {
-                method: 'POST',
-                body: formData
-                })
-                .then((response) => {
-                    if (response === 201) {
-                        alert("Vous êtes bien inscrit");
-                    }
-                })
-        });
+            .then((response) => {
+                if (response.status === 201) {
+                    alert("Votre compte a bien été créé");
+                }
+            })
+        })
 });
-
+/* 
 btnLogin.addEventListener("click", async (ev) => {
     fetch('login.php')
         .then((response) => {
@@ -60,11 +36,11 @@ btnLogin.addEventListener("click", async (ev) => {
             }
         })
         .then((html) => {
-            registerDisplay.innerHTML = html;
+            containerForm.innerHTML = html;
         });
         let loginForm = document.querySelector("#formLogin");
         loginForm.addEventListener("submit", async(ev) => {
-            ev.preventDefault();
+            await ev.preventDefault();
             let loginformData = new FormData(loginForm);
             fetch('login.php', {
                 method: 'POST',
@@ -79,4 +55,4 @@ btnLogin.addEventListener("click", async (ev) => {
                     registerDisplay.appendChild(title);
                 })
         });
-}); */
+});  */
