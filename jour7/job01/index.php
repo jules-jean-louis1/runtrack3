@@ -23,13 +23,28 @@
                     </a>
                 </li>
             </ul>
+            <div class="flex items-center justify-center">
+                <div class="flex border-2 border-rose-500 rounded">
+                    <input type="text" class="px-4 py-2 w-80" placeholder="Rechercher...">
+                    <button class="px-4 text-rose-500 bg-white border-2">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
         </nav>
     </header>
     <main>
 
     </main>
     <footer>
-
+        <nav>
+            <ul>
+                <li></li>
+            </ul>
+        </nav>
     </footer>
 </body>
 </html>
