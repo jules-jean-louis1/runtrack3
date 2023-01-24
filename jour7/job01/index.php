@@ -40,10 +40,25 @@
 
     </main>
     <footer>
-        <nav>
-            <ul>
-                <li></li>
-            </ul>
+        <nav class="w-full flex flex-warp items-center justify-around bg-rose-500 py-4 fixed bottom-0">
+            <div class="flex">
+                <ul class="list-style-none">
+                    <li class="nav-items mx-8">
+                        <a href="index.php" class="nav-link focus:text-indigo-500 hover:text-indigo-600">
+                            Accueil
+                        </a>
+                        <a href="index.php" class="nav-link focus:text-indigo-500 hover:text-indigo-600">
+                            Inscription
+                        </a>
+                        <a href="index.php" class="nav-link focus:text-indigo-500 hover:text-indigo-600">
+                            Connexion
+                        </a>
+                        <a href="index.php" class="nav-link focus:text-indigo-500 hover:text-indigo-600">
+                            Rechercher
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </footer>
 </body>
