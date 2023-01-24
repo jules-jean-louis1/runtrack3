@@ -16,6 +16,17 @@ registerDisplay.addEventListener("click", async (ev) => {
     registerForm.addEventListener("submit", async (ev) => {
         ev.preventDefault();
         let formData = new FormData(registerForm);
+            //Check si le login existe déjà
+        let takenLogin = await fetch('register.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then((response) => ( response.json()))
+            .then((data) => data.taken);
+        if (takenLogin) {
+            alert("Ce login est déjà pris");
+        } else {
+            //Création du compte
         await fetch('register.php', {
             method: 'POST',
             body: formData
@@ -25,7 +36,8 @@ registerDisplay.addEventListener("click", async (ev) => {
                     alert("Votre compte a bien été créé");
                 }
             })
-        })
+        }
+    });
 });
 /* 
 btnLogin.addEventListener("click", async (ev) => {
