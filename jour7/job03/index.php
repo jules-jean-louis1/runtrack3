@@ -37,7 +37,7 @@
         </nav>
     </header>
     <main>
-        <article class="flex">
+        <article class="flex justify-center">
             <section class="container mx-auto">
                 <form action="" method="post" class="w-full max-w-lg">
                     <div class="flex flex-wrap-mx-3 mb-6">
