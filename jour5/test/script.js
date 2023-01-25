@@ -1,6 +1,9 @@
 let registerDisplay = document.querySelector("#register-diplay-form");
 let formContainer = document.querySelector("#form-container");
 
+function errorBorder(input) {
+    input.className = "bg-slate-200 border-2 border-red-500 px-2 py-2 mx-2 rounded";
+}
 registerDisplay.addEventListener("click", async (ev) => {
     await fetch('register.php')
         .then((response) => {
@@ -12,32 +15,43 @@ registerDisplay.addEventListener("click", async (ev) => {
         .then((html) => {
             formContainer.innerHTML = html;
         });
-    let registerForm = document.querySelector("#register-form")
-    registerForm.addEventListener("submit", async (ev) => {
-        ev.preventDefault();
-        let formData = new FormData(registerForm);
-            //Check si le login existe déjà
-        let takenLogin = await fetch('register.php', {
-            method: 'POST',
-            body: formData
-        })
-            .then((response) => ( response.json()))
-            .then((data) => data.taken);
-        if (takenLogin) {
-            alert("Ce login est déjà pris");
-        } else {
-            //Création du compte
-        await fetch('register.php', {
-            method: 'POST',
-            body: formData
-        })
-            .then((response) => {
-                if (response.status === 201) {
-                    alert("Votre compte a bien été créé");
+        registerForm.addEventListener("submit", async (ev) => {
+            ev.preventDefault();
+            let formData = new FormData(registerForm);
+        
+            // Get the password and confirm password fields
+            let password = formData.get("password");
+            let password2 = formData.get("password2");
+        
+            // Check if the passwords match
+            if (password !== password2) {
+                errorBorder(document.querySelector("#password"));
+                errorBorder(document.querySelector("#password2"));
+                /* alert("Sorry, the passwords do not match. Please try again."); */
+            } else {
+                let taken = await fetch('check-username.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then((response) => response.json())
+                    .then((data) => data.taken);
+        
+                if (taken) {
+                    alert("Sorry, that username is already taken. Please choose a different one.");
+                } else {
+                    // Submit the form
+                    await fetch('register.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then((response) => {
+                            if (response.status === 201) {
+                                alert("Your account has been created!");
+                            }
+                        });
                 }
-            })
-        }
-    });
+            }
+        });
 });
 /* 
 btnLogin.addEventListener("click", async (ev) => {
@@ -68,3 +82,8 @@ btnLogin.addEventListener("click", async (ev) => {
                 })
         });
 });  */
+
+/* document.getElementById("test_btn").addEventListener("click", function(){
+    document.getElementById("test_btn").className = "border-2 border-green-500 hover:border-red-300 rounded bg-black px-4 py-2";
+  }); */
+  
